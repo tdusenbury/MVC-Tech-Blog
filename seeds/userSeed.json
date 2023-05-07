@@ -10,17 +10,17 @@
     {
         "username": "Lois Lowry",
         "password": "giverbanned"
-    }
+    },
     {
         "username": "Katherine Patterson",
         "password": "bridgebanned"
-      },
-      {
+    },
+    {
         "username": "Harper Lee",
         "password": "mockingbirdbanned"
-      },
-      {
+    },
+    {
         "username": "Maya Angelo",
         "password": "birdbanned"
-      }
+    }
   ]
