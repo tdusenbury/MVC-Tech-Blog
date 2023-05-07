@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
-const withAuth = require('../../utils/auth');
+//const withAuth = require('../../utils/auth');
 
 //This creates a new sign in / account
 router.post("/", async (req, res) => {
@@ -27,16 +27,15 @@ router.post("/", async (req, res) => {
 // Log in to site
 router.post("/login", async (req, res) => {
   try {
+    const newUser = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
     if (!req.body.username) {
       res.status(400).json({ message: "Please provide a username." });
       return;
     }
-    
-    const newUser = await User.findOne({
-      where: {
-        username: req.body.username,
-      }
-    });
 
     if (!newUser) {
       res.status(400).json({ message: "Username and/or Password is incorrect. Please try again." });
