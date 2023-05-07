@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router();
+const { User } = require("../../models");
 //const withAuth = require('../../utils/withAuth');
 
 router.post("/", async (req, res) => {
@@ -11,43 +11,47 @@ router.post("/", async (req, res) => {
 
         req.session.save(() => {
             req.session.userId = newUser.id;
-            req.session.username = newUser
-            re
-        })
-    }
-})
+            req.session.username = newUser.username;
+            req.session.loggedIn = true;
 
-router.post('/login', async (req, res) => {
- 
+            res.status(200).json(newUser);
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.post("/login", async (req, res) => {
   try {
-    const userData = await User.findOne({
+    const newUser = await User.findOne({
       where: {
         username: req.body.username,
       }
     });
-    console.log(userData + "userData")
-    if (!userData) {
-      res.status(400).json({ message: "wrong credentials" });
+
+    if (!newUser) {
+      res.status(400).json({ message: "Username and/or Password is incorrect. Please try again." });
       return;
     }
     
-    const validPassword = await userData.checkPassword(req.body.password);
+    const loginPassword = await newUser.checkPassword(req.body.password);
 
-    if (!validPassword) {
-      res.status(400).json(err);
+    if (!loginPassword) {
+      res.status(400).json({message: "Username and/or Password is incorrect. Please try again.",
+    });
       return;
     }
-
     
-
     req.session.save(() => {
-      req.session.LoggedIn = true;
-      req.session.id = userData.id
+        req.session.userId = newUser.id;
+        req.session.username = newUser.username;
+        req.session.loggedIn = true;
 
-      res.status(200).json({ userData });
+      res.status(200).json({ user: newUser, message: "You have successfully logged in!" });
     });
   } catch (err) {
-  
+    console.log(err);
     res.status(500).json(err)
   }
 });
@@ -72,10 +76,10 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-  if (req.session.LoggedIn) {
+  if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
-      console.log("we are in.")
+      console.log("End")
       res.redirect('/')
     })
   } else {

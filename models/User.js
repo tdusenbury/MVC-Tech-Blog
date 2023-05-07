@@ -39,7 +39,7 @@ class User extends Model {
             const {password} = user
             user.password = bcrypt.hashSynch(password, 10)         
     }
-},
+  },
       },
       sequelize,
       timestamps: false,
