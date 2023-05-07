@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const { User } = require("../../models");
-//const withAuth = require('../../utils/withAuth');
+const withAuth = require('../../utils/auth');
 
+//This creates a new sign in / account
 router.post("/", async (req, res) => {
     try {
         const newUser = await User.create({
+            name: req.body.name,
             username: req.body.username,
             password: req.body.password,
         });
@@ -22,8 +24,14 @@ router.post("/", async (req, res) => {
     }
 });
 
+// Log in to site
 router.post("/login", async (req, res) => {
   try {
+    if (!req.body.username) {
+      res.status(400).json({ message: "Please provide a username." });
+      return;
+    }
+    
     const newUser = await User.findOne({
       where: {
         username: req.body.username,
@@ -56,31 +64,13 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post('/signup', async (req, res) => {
-  try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    });
-    req.session.save(() => {
-      req.session.LoggedIn = true;
-      req.session.id = dbUserData.id
-      res.status(200).json(dbUserData);
-    });
-    
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
+// Log out of site
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
       console.log("End")
-      res.redirect('/')
+      //res.redirect('/')
     })
   } else {
     res.status(404).end();

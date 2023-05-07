@@ -16,9 +16,17 @@ class User extends Model {
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      username: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Please provide a name."
+          },
+          notEmpty: {
+            msg: "Name cannot be empty."
+          }
+        }
       },
       password: {
         type: DataTypes.STRING,
@@ -26,7 +34,7 @@ class User extends Model {
         validate: {
           len: [8],
         },
-      },
+      }
     },
     {
       hooks: {
@@ -34,12 +42,12 @@ class User extends Model {
           newUserData.password = await bcrypt.hashSync(newUserData.password, 10);
           return newUserData;
         },
-        asynch beforeBulkCreate(users) {
-         for (const user of users) {
-            const {password} = user
-            user.password = bcrypt.hashSynch(password, 10)         
-    }
-  },
+        async beforeBulkCreate(users) {
+          for (const user of users) {
+            const {password} = user;
+            user.password = bcrypt.hashSync(password, 10);
+          }
+        },
       },
       sequelize,
       timestamps: false,
@@ -49,4 +57,5 @@ class User extends Model {
     }
   );
   
-  module.exports = User; 
+  module.exports = User;
+  

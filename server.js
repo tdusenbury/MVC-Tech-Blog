@@ -9,15 +9,9 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-const PORT = process.env.PORT || 3001;
-
-//handlebars and helper files
-const hbs = exphbs.create({ helpers });
-
-
+const PORT = process.env.PORT || 3051;
 
 require("dotenv").config()
-
 
 const sess = {
     secret: "Super super secret",
@@ -31,7 +25,9 @@ const sess = {
 
 app.use(session(sess));
 
-app.engine("handlebars", handlebars.engine);
+const hbs = exphbs.create({ helpers });
+
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use(express.json());
@@ -47,3 +43,4 @@ sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () =>
         console.log(`App listening on port ${PORT}!`));
 });
+
