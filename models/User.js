@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
 const sequelize = require('../config/connection');
 
 class User extends Model {
@@ -42,18 +42,18 @@ class User extends Model {
           newUserData.password = await bcrypt.hashSync(newUserData.password, 10);
           return newUserData;
         },
-        async beforeBulkCreate(users) {
-          for (const user of users) {
-            const {password} = user;
-            user.password = bcrypt.hashSync(password, 10);
-          }
-        },
+        // async beforeBulkCreate(users) {
+        //   for (const user of users) {
+        //     const {password} = user;
+        //     user.password = bcrypt.hashSync(password, 10);
+        //   }
+        // },
       },
       sequelize,
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'user',
+      modelName: "user",
     }
   );
   

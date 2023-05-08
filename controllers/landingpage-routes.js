@@ -15,9 +15,10 @@ router.get('/', async (req, res) => {
             })
 
         const posts = postData.map((post) => post.get({ plain: true }));
-        res.render('landing',
+        console.log("Landing is working")
+        res.render("landing",
             { posts,
-            LoggedIn: req.session.LoggedIn
+            LoggedIn: req.session.loggedIn
         });
     } catch (err) {
         console.log(err)

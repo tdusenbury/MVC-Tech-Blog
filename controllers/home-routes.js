@@ -9,10 +9,10 @@ router.get("/home", withAuth, async (req, res) => {
         });
     
         // Serialize data so the template can read it
-        const posts = postData.map((post) => PerformanceServerTiming.get({ plain: true }));
+        const posts = postData.map((post) => post.get({ plain: true }));
     
         // Pass serialized data and session flag into template
-        res.render("all-posts", { posts });
+        res.render("home", { post: posts, LoggedIn: req.session.loggedIn });
     } catch (err) {
         res.status(500).json(err);
       }
@@ -45,7 +45,7 @@ router.get('/signup', (req, res) => {
         res.redirect('/');
             return;
         }
-        res.render('signup');
+        res.render("signup");
         });
     
 router.get('/login', (req, res) => {

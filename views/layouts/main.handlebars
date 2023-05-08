@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
+    {{!-- <link rel="stylesheet" href="./css/style.css"> --}}
     <title>T's Blog of Tech</title>
 </head>
 
@@ -33,7 +33,7 @@
                 <a href="/login" id = "logInBtn" class="navlink"><button class="navBtn">Log In</button></a>   
                 {{/unless}}         
                 {{#if LoggedIn}}
-                <a href="/" id = "logOutBtn" class="navlink"><button class="navBtn">Log Out</button></a>
+                <a href="/" id = "logout" class="navlink"><button class="navBtn">Log Out</button></a>
                 {{/if}}
             </nav>
         </div>
@@ -52,7 +52,7 @@
     
 
    {{#if LoggedIn}}
-    <script src="./js/signin-signup.js"></script>
+    <script src="./js/logout.js"></script>
     {{/if}}
 </body>
 
