@@ -8,14 +8,15 @@ router.get("/dashboard", withAuth, async (req, res) => {
     try {
         const userPostData = await Post.findAll({
             where: {
-                user_id: req.session.id,
+                user_id: req.session.userId,
             }
         });
         const userPosts = userPostData.map((post) => post.get({ plain: true }));
         res.render("dashboard",
             {
+                layout: "main",
                 userPosts,
-                LoggedIn: req.session.LoggedIn
+                LoggedIn: req.session.loggedIn
             });
     } catch (err) {
         console.log(err)
