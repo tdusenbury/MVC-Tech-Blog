@@ -30,8 +30,8 @@ router.get('/post/:id', async (req, res) => {
           });
           if (postData) {
           const post = postData.get({ plain: true });
-      
-          res.render("user-post", { post });
+      console.log(post)
+          res.render("comment", { post });
           } else {
             res.status(404).end();
           }

@@ -1,4 +1,27 @@
-<form id="newCommentForm">
+<div class="my-5 pb-5">
+<h2 class="postTitle">
+    {{post.title}}
+</h2>
+    <p class="postContent">
+        {{post.content}} 
+    </p> 
+
+<br>
+
+<div class="authorWrapper row-4">
+        <i class="PostBy col-4 offset-lg-8 offset-md-7">
+            <sm>
+                {{post.user.username}}
+                {{make_date post.date_created}}
+            </sm>
+        </i> 
+</div>
+</div>
+{{#each post.comments as | comment | }}
+<h3>{{comment.user.username}}</h3>
+<p>{{comment.content}}</p>
+{{/each}}
+<form id="newCommentForm" data-postId="{{post.id}}">
     <div>
         <h2 class="form-control-lg">Enter comment here:</h2>
         <textarea class="form-control" id="newCommentFormInput">

@@ -1,3 +1,5 @@
+const postId = document.querySelector('#newCommentForm').dataset.postId
+
 const newCommentFormHandler = async (event) => {
     event.preventDefault();
 
@@ -6,7 +8,7 @@ const newCommentFormHandler = async (event) => {
     if (newComment) {
         const response = await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({ content: newComment }),
+            body: JSON.stringify({ content: newComment, post_id: postId }),
             headers: { 'Content-Type': 'application/json' },
         });
 
