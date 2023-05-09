@@ -12,7 +12,7 @@ const signupFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/home');
       } else {
         alert("Signup Process Failed. Try Again.");
       }

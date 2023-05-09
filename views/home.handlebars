@@ -1,26 +1,42 @@
 {{#each post}}
-
-<h2 class="postTitle">{{this.title}}</h2>
-<p class="postContent">{{this.content}} 
-</p> 
+<div class="my-5 pb-5">
+<h2 class="postTitle">
+    {{this.title}}
+</h2>
+    <p class="postContent">
+        {{this.content}} 
+    </p> 
 
 <br>
 
-
 <div class="authorWrapper row-4">
-    <a href="#" ><button class="addPeanutBtn navBtn">Comment</button></a>
-    <i class="PostBy col-4 offset-lg-8 offset-md-7">
-        <sm>{{user.username}}
-            {{make_date date_created}}
-            </sm>
-    </i>
-  
-</div>
-<div class="postInput row-12">
-    <input  class="savePostBtn" class="col-8"><a class="commentSaveBtn col-4"><button class="navBtn">Save Comment</button></a>
-</div>
+    <a href="#" >
+         <button type="button" class="btn btn-secondary">
+            Comment
+         </button>
 
-{{#each comments}}
+    </a>
+        <i class="PostBy col-4 offset-lg-8 offset-md-7">
+            <sm>
+                {{user.username}}
+                {{make_date date_created}}
+            </sm>
+        </i> 
+</div>
+</div>
+{{/each}}
+
+
+{{!-- <div class="postInput row-12">
+    <input  class="savePostBtn" class="col-8">
+        <a class="commentSaveBtn col-4">
+            <button class="navBtn">
+                Save Comment
+            </button>
+        </a>
+</div> --}}
+
+{{!-- {{#each comments}}
 
 <div class="postWrapper row-12">
     <div class="eachPost row-3">
@@ -29,25 +45,31 @@
         </p>
         <div class="authorWrapper row 4">
             <i class="PostBy row-2 offset-1">
-                <sm>comment by: {{user.username}} 
-                    {{make_date date_created}}
-                    </sm>
-
+                <sm>
+                    comment by: {{user.username}} 
+                        {{make_date date_created}}
+                </sm>
             </i>
-
-            <div class="commentEditBtns col-4 offset-lg-10 offset-md-9">
-                <a href="#" class="editPost"><button class="navBtn">edit</button></a>
-                <a href="#" class="editPost"><button class="navBtn">delete</button></a>
-            </div>
-
+        <div class="commentEditBtns col-4 offset-lg-10 offset-md-9">
+            <a href="#" class="editPost">
+                <button class="navBtn">
+                    edit
+                </button>
+            </a>
+            <a href="#" class="editPost">
+                <button class="navBtn">
+                    delete
+                </button>
+            </a>
         </div>
     </div>
-</div>
+</div> --}}
+{{!-- </div> --}}
 
 <hr>
-{{/each}}
+{{!-- {{/each}} --}}
 
-{{/each}}
+
 
 
 {{!-- <script src="./js/comment.js"></script> --}}

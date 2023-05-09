@@ -1,14 +1,19 @@
 {{#each posts}}
-<h2 class="postTitle">{{this.title}}</h2>
-<p class="postContent">
-    {{this.content}}
-    <br>
-<div class="authorWrapper row 4">
-    <i class="PostBy col-4 offset-lg-8 offset-md-7">
+    <h2 class="postTitle">
+        {{this.title}}
+    </h2>
+
+    <p class="postContent">
+        {{this.content}}
+<br>
+
+    <div class="authorWrapper row 4">
+        <i class="PostBy col-4 offset-lg-8 offset-md-7">
         <sm>
             Posted by {{user.username}} on {{make_date date_created}}
         </sm>
     </i>
 </div>
-{{!-- <script src="./js/home.js"></script> --}}
+<br>
+<br>
 {{/each}}

@@ -75,21 +75,36 @@
         </div>
     </header>
     
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <main class="container">
         <div class="row-12 blogWrapper">
-        {{{body}}}
-        </div>
+
+    <br>
+    <br>
+
+    {{{body}}}
+        {{!-- {{#each posts}}
+            <h2 class="postTitle">
+                {{this.title}}
+            </h2>
+            
+            <p class="postContent">
+                {{this.content}} 
+            </p> 
+        <br>
+            <div class="authorWrapper row-4">
+                <sm>
+                    {{user.username}}
+                    {{make_date date_created}}
+                </sm>
+            </div>
+        <br>
+        <br>
     </main>
-
-
-
-    
-
-   {{#if LoggedIn}}
-    <script src="./js/logout.js"></script>
-    {{/if}}
+        {{/each}} --}}
+        {{#if LoggedIn}}
+            <script src="./js/logout.js"></script>
+        {{/if}}
 </body>
 
 </html>

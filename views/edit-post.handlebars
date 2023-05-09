@@ -1,0 +1,23 @@
+<form id="editPostForm">
+    <h2 class="form-control-lg">Edit post here:</h2>
+
+        <div>
+            <input value="{{post.title}}" name="postTitle" type="text" class="form-control" id="editPostFormTitleInput" placeholder="Edit Post Title">
+        </div>
+    <br>
+        <div>
+            <textarea name="post-content" class="form-control" id="editPostFormContentInput" placeholder="Edit Post Content">
+                {{post.content}}
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Update Post</button>
+</form>
+
+<form id="deletePostForm">
+    <button id="deletePostFormBtn" data-post_id="{{post.id}}" type="button" class="btn btn-danger">
+        Delete Post
+    </button>
+
+    </form>
+
+    <script src="/js/edit-post.js"></script>
