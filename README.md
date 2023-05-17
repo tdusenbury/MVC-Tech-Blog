@@ -12,7 +12,7 @@ The account also allows users to comment on other posts.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
-[Check out the site live here!](https://git.heroku.com/t-mvc-tech-blog.git)
+[Check out the site live here!](https://t-mvc-tech-blog.herokuapp.com/)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ If you have found this blog outside of GitHub and wish to view the original, [vi
 
 The below image shows that when the site loads, you are presented with a homepage that includes a view of posted blog content; navigation links to the homepage and dashboard; and options to signup or login to a personal account.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ![alt text](./img/homepage.PNG)
 
@@ -41,10 +41,7 @@ The below image shows that when the site loads, you are presented with a homepag
 ## Table of Contents
 
   - [**Description**](#description)
-  - [**Installation**](#installation)
   - [**Usage**](#usage)
-  - [**Contribution**](#contributing)
-  - [**Testing**](#tests)
   - [**Author Info**](#author-info)
   - [**License**](#license)
 
@@ -52,39 +49,21 @@ The below image shows that when the site loads, you are presented with a homepag
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Usage 
 
-Once the Slayer Sitch Tracker has been installed, the user will type 'node index-js' into the terminal command-line. A list of options is then presented to the user to view or add employees, roles, and departments. Each option will either auto-generate the requested information or ask a series of questions that, once answered, will be used to populate the corresponding chart which will then be displayed. To reset any additions back to the original list, enter 'mysql -u root -p' into the command-line, enter your login information, and then run the schema.sql and the seeds.sql.
+This application allows like-minded users to read and write about the effects of technology on books and vice versa. This CMS-style blog presents a sleek UI that is easy to use and guide yourself through.
 *************
-Here is the menu of initial questions to choose from:
+When a user needs to login, they are directed here:
 
-![alt text](./img/FirstQuestions.PNG)
+![alt text](./img/Signup.PNG)
 
 ****************
-These are the questions asked to add an employee and the new table showing the new employee:
+Once logged in, a user can visit their personal dashboard. This allows them easy access to create new content, view their previous posts, and edit or delete previous posts:
 
-![alt text](./img/AddEmployee.PNG)
+![alt text](./img/Dashboard.PNG)
 
 *****************
-Here the role of "Accountant" has been added:
+If a user chooses to edit or a delete one of their posts, they are directed to this screen:
 
-![alt text](./img/AddRoleAccountant.PNG)
-**************************************
-When the role of "Armorer" is added later, you can see that "Accountant" has been retained:
-
-![alt text](./img/AddRoleArmorer.PNG)
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## Learning Points
-
-I love being organized and color-coding and sorting and all the things. 
-
-Learning how to use SQL has been a joy.
-
-Rules, order, structure....but also a lot of thinking about how to deconstruct and then reconstruct the information to show correctly.
-
-I look forward to learning more about SQL and its various versions to see all the many things I can do with it!
-
+![alt text](./img/Edit.PNG)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -102,7 +81,7 @@ If you have any questions about me or this project, please contact me:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Credits
 
-Shout outs to the cohort and study group!!! We made it half-way!!!!
+I could only be so fortunate to work with such amazing people as those in my cohort!
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
