@@ -21,6 +21,7 @@
 <h3>{{comment.user.username}}</h3>
 <p>{{comment.content}}</p>
 {{/each}}
+{{#if LoggedIn}}
 <form id="newCommentForm" data-postId="{{post.id}}">
     <div>
         <h2 class="form-control-lg">Enter comment here:</h2>
@@ -29,5 +30,5 @@
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
 </form>
-
+{{/if}}
 <script src="/js/comment.js"></script>

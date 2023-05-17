@@ -1,10 +1,26 @@
 <div id="logInForm" class="logInWrapper col-6 offset-4">
     <form class="row-12 login-form" >
-        <h2>Login: </h2>
-        <input id = "username-login" class="col-8"><sm>Username</sm><br>
-        <input id = "password-login" class="col-8"><sm>Password</sm>
+        <h2>Login Here!</h2>
+        <div class="form-floating mb-3">
+            <input id = "username-login" class="form-control" placeholder="Username" type="text">
+            <label for="username-login">
+                Username
+            </label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input id = "password-login" class="form-control" placeholder="Password" type="text">
+            <label for="password-login">
+                Password
+            </label>
+        </div>
+
         <div class="row-12">
-            <a class="col-4"><button id = "logInPageBtn" class="navBtn signInBtn col-4">Log In</button></a>
+            <a class="col-4">
+                <button id = "logInPageBtn" class="btn btn-secondary navBtn">
+                    Log In!
+                </button>
+            </a>
         </div>
     </form>
 </div>

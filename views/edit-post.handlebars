@@ -1,5 +1,5 @@
-<form id="editPostForm">
-    <h2 class="form-control-lg">Edit post here:</h2>
+<form class="row-12" id="editPostForm">
+    <h2>Edit post here!</h2>
 
         <div>
             <input value="{{post.title}}" name="postTitle" type="text" class="form-control" id="editPostFormTitleInput" placeholder="Edit Post Title">
@@ -10,11 +10,11 @@
                 {{post.content}}
             </textarea>
         </div>
-        <button type="submit" class="btn btn-success">Update Post</button>
+        <button type="submit" class="btn btn-success navBtn mt-3">Update Post</button>
 </form>
 
 <form id="deletePostForm">
-    <button id="deletePostFormBtn" data-post_id="{{post.id}}" type="button" class="btn btn-danger">
+    <button id="deletePostFormBtn" data-post_id="{{post.id}}" type="button" class="btn btn-danger mt-3">
         Delete Post
     </button>
 

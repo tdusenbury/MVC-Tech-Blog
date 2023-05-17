@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
-router.get("/home", withAuth, async (req, res) => { 
+router.get("/", async (req, res) => { 
     try {
         const postData = await Post.findAll({
           include: [User],
@@ -31,7 +31,7 @@ router.get('/post/:id', async (req, res) => {
           if (postData) {
           const post = postData.get({ plain: true });
       console.log(post)
-          res.render("comment", { post });
+          res.render("comment", { post: post, LoggedIn: req.session.loggedIn });
           } else {
             res.status(404).end();
           }
@@ -39,6 +39,22 @@ router.get('/post/:id', async (req, res) => {
           res.status(500).json(err);
         }
       });
+
+router.get('/post/:id/edit', async (req, res) => {
+  try {
+      const postData = await Post.findByPk(req.params.id);
+        if (postData) {
+        const post = postData.get({ plain: true });
+    console.log(post)
+        res.render("edit-post", { post: post, LoggedIn: req.session.loggedIn });
+        } else {
+          res.status(404).end();
+        }
+      }  catch (err) {
+        res.status(500).json(err);
+      }
+    });
+
 
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {

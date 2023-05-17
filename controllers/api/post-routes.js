@@ -36,4 +36,14 @@ router.put("/:id", withAuth, async (req, res) => {
     }
 });
 
+router.delete("/:id", withAuth, async (req, res) => {
+    try {
+        await Post.destroy({where: {id: req.params.id}});
+        res.status(200).end();
+    } catch (err) {
+        console.log(err)
+        res.status(500).json("Did not delete")
+    } 
+});
+
 module.exports = router;

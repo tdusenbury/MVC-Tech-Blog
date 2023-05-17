@@ -79,21 +79,21 @@ router.post('/login', async (req, res) => {
       });
       return;
     }
-
-    req.session.userId = newUser.id;
-    req.session.username = newUser.username;
-    req.session.loggedIn = true;
-
-    res.status(200).json({
-      user: newUser,
-      message: 'You have successfully logged in!',
-    });
+    req.session.save(() => {
+      req.session.userId = newUser.id;
+      req.session.username = newUser.username;
+      req.session.loggedIn = true;
+      res.status(200).json({
+        user: newUser,
+        message: 'You have successfully logged in!',
+      });
+    })
+  
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
 
 // Log out of site
 router.post('/logout', (req, res) => {

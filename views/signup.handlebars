@@ -1,13 +1,28 @@
 <div id="signUpForm" class="signUpWrapper col-6 offset-4">
     <form class="row-12 signup-form">
-        <div class = "col 4">
         <h2>Sign Up Now!</h2>
-        <input id = "username-signup" class="col-8"><sm>create username</sm>
-        <input id = "password-signup" class="col-8"><sm>create password</sm>
+        <div class="form-floating mb-3">
+            <input id="username-signup" class="form-control" placeholder="Username" type="text">
+            <label for="username-signup">
+                Create Username
+            </label>
         </div>
+        
+        <div class="form-floating mb-3">
+            <input id="password-signup" class="form-control" placeholder="Password" type="text">
+            <label for="password-signup">
+                Create Password
+            </label>
+        </div>
+
         <div class="row-12">
-            <a id = "signUpFormBtn" class="col-4"></a><button class="navBtn">Sign Up</button></a>
+            <a id="signUpFormBtn" class="col-4">
+                <button class="btn btn-secondary navBtn">
+                    Sign Up!
+                </button>
+            </a>
         </div>
+        
     </form>
 </div>
 
